@@ -1,15 +1,16 @@
-import java.util.Scanner;
-import java.util.HashMap;
-import pieces.*;
+import java.util.*;
+import ChessPieces.*;
 
 class Main {
 
     private static Piece [] [] board;
+    private static ArrayList<Piece> kings;
 
     public static void main(String[] args) {
         Scanner scan = new Scanner (System.in);
 
         board = new Piece [8] [8];
+        kings = new ArrayList<>();
         initalizeBoard();
         welcome();
 
@@ -28,9 +29,6 @@ class Main {
             System.out.print("\n\nEnter Your Move: ");
             String input = scan.nextLine();
 
-            System.out.println(input.equalsIgnoreCase("exit"));
-            System.out.println(input);
-
             if (input.equalsIgnoreCase("exit")) {
                 System.out.println("Sorry you had to leave");
                 System.out.println("Hope you come back soon!");
@@ -39,9 +37,9 @@ class Main {
             }
 
             if (current.equals("White"))
-                won = white.input(input, board);
+                won = white.input(input, board, kings);
             else
-                won = red.input(input, board);
+                won = red.input(input, board, kings);
 
             if (won == 0) {
                 if (current == "White") 
@@ -101,14 +99,14 @@ class Main {
         /*Red is far side of board, white is close side of board*/
 
         System.out.print(ConsoleColors.RED_BOLD);
-        board[0][3] = new Queen(1);
-        board[0][4] = new King(1);
         board[0][0] = new Rook(1);
         board[0][7] = new Rook(1);
         board[0][1] = new Knight(1);
         board[0][6] = new Knight(1);
         board[0][2] = new Bishop(1);
         board[0][5] = new Bishop(1);
+        board[0][3] = new Queen(1);
+        board[0][4] = new King(1);
 
 
         System.out.print(ConsoleColors.WHITE_BOLD);
@@ -120,6 +118,9 @@ class Main {
         board[7][0] = new Rook(0);
         board[7][3] = new Queen(0);
         board[7][4] = new King(0);
+
+        kings.add(board[7][4]); // white
+        kings.add(board[0][4]); // red
 
         System.out.print(ConsoleColors.RESET);
     }
@@ -137,5 +138,7 @@ class Main {
         System.out.println("- Write the position of the piece you want to move, and then write the position you want it to move to.");
 
         System.out.println("- If the move is checkmate, add an x at the end of the move.");
+        System.out.println("- Type \"exit\" to leave the game early.");
+        System.out.println("- Type \"skip\" to skip your turn.");
     }
 }

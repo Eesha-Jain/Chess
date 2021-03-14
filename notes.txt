@@ -1,7 +1,0 @@
-5) King check?
-6) no castle if the position makes king in check
-7) pawn promotion
-8) ansaut special pawn move
-9) move rook in check
-10) switch a-h and 1-8 on the board
-11) Package Implementation

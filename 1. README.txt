@@ -1,0 +1,11 @@
+Thanks for coming to and playing my chess program!!
+
+I'm almost done with the chess program, as there is only one remaining feature on my to-do list!
+
+If you catch another error or want a feature implemented, feel free to tell me and I'll change / add it!
+
+Have fun and enjoy! :)
+
+```````````````````````````````````````````````````````````
+List of Things to Do:
+    1) Is it a valid checkmate?

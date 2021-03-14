@@ -1,3 +1,4 @@
+package ChessPieces;
 
 import java.util.Scanner;
 import java.util.HashMap;

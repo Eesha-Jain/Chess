@@ -1,4 +1,4 @@
-
+package ChessPieces;
 
 public class Blank extends Piece {
     
